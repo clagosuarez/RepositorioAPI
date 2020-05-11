@@ -6,9 +6,9 @@ import java.io.IOException;
 
 public class app {
     public static void main(String[] args) throws IOException {
-        GitHub github = AccesoToken();
+        GitHub github = AccesoPasswd();
         GHRepository repo = github.createRepository(
-                "AccesoToken","this is my new repository",
+                "AccesoPasswd","this is my new repository",
                 "https://www.kohsuke.org/",true/*public*/);
     }
     public static GitHub AccesoFichero() throws IOException {
@@ -17,6 +17,10 @@ public class app {
     }
     public static GitHub AccesoToken() throws IOException {
         GitHub github = new GitHubBuilder().withJwtToken("").build();
+        return github;
+    }
+    public static GitHub AccesoPasswd() throws IOException {
+        GitHub github = new GitHubBuilder().withPassword("", "").build();
         return github;
     }
 }
