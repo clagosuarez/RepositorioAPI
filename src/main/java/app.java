@@ -15,4 +15,8 @@ public class app {
         GitHub github = GitHubBuilder.fromPropertyFile("C:\\Users\\carlo\\Desktop\\login.txt").build();
         return github;
     }
+    public GitHub AccesoToken() throws IOException {
+        GitHub github = new GitHubBuilder().withJwtToken("").build();
+        return github;
+    }
 }
