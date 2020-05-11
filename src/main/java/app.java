@@ -1,5 +1,18 @@
-public class app {
-    public static void main(String[] args) {
+import org.kohsuke.github.GHRepository;
+import org.kohsuke.github.GitHub;
+import org.kohsuke.github.GitHubBuilder;
 
+import java.io.IOException;
+
+public class app {
+    public static void main(String[] args) throws IOException {
+        GitHub github = AccesoFichero();
+        GHRepository repo = github.createRepository(
+                "AccesoFichero","this is my new repository",
+                "https://www.kohsuke.org/",true/*public*/);
+    }
+    public static GitHub AccesoFichero() throws IOException {
+        GitHub github = GitHubBuilder.fromPropertyFile("C:\\Users\\carlo\\Desktop\\login.txt").build();
+        return github;
     }
 }
